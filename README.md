@@ -7,6 +7,10 @@ So far I have the following keyboards that I lovingly put together:
  * Two (yes, _two_) [Infinity Ergodox][ergodox] from separate [Massdrop][] drops. One is an early model, another is the newer one featuring USB-C connectors and O-rings on the caps.
  * A [Planck][] which I sourced from all over the internet, including a [wooden case][planck-case] from [Massdrop][] as well. Featuring green LEDs and a custom green cable from [Pexon][].
 
+## Usage
+
+This depends on the keyboard, just `cd` into the required directory and check out the `Makefile`. The scripts assume you're running Arch Linux because that's what I use, you'll have to adjust them slightly for other distros and operating systems.
+
 [massdrop]: https://www.massdrop.com
 [ergodox]: https://www.massdrop.com/buy/infinity-ergodox
 [planck]: https://olkb.com/planck/
