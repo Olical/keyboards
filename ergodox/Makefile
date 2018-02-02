@@ -1,15 +1,15 @@
-.PHONY: deps compile
+.PHONY: deps compile flash-left flash-right
 
 deps:
 	if [ -d "controller" ]; then \
 		cd controller && git clean -df && git checkout -- . && git pull; \
 	else \
 		git clone git@github.com:kiibohd/controller.git; \
+		yaourt -S \
+			git cmake make python libusb ctags \
+			arm-none-eabi-binutils arm-none-eabi-gcc \
+			arm-none-eabi-newlib dfu-util lsb-release; \
 	fi
-	sudo pacman -S --needed \
-		git cmake make python libusb ctags \
-		arm-none-eabi-binutils arm-none-eabi-gcc \
-		arm-none-eabi-newlib dfu-util lsb-release
 
 compile:
 	mkdir -p ./controller/kll/layouts/custom
