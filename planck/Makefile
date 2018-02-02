@@ -11,4 +11,4 @@ deps:
 compile:
 	mkdir -p qmk_firmware/keyboards/planck/keymaps/olical
 	cp config.h keymap.c rules.mk qmk_firmware/keyboards/planck/keymaps/olical
-	cd qmk_firmware/keyboards/planck && make planck/rev4:default
+	cd qmk_firmware/keyboards/planck && make planck/rev4:olical
