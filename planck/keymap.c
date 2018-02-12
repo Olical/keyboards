@@ -1,17 +1,59 @@
-/* Copyright 2015-2017 Jack Humbert
+/**
+ * So let's plan this keyboard layout. I'm going to list the keys I need grouped by layer.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
+ * The thoughts behind this layout mainly come from my Ergodox layout.
+ * https://github.com/Olical/ergodox/blob/master/layout.png
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * This file is a _heavily_ modified version of the default Planck layout file.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * 47 keys per layer
+ *
+ * == Default ==
+ * A-Z (26)
+ * (
+ * {
+ * [
+ * Space
+ * Shift
+ * Escape
+ * Alt
+ * Control
+ * GUI (super)
+ * Tab
+ * Comma
+ * Period
+ * Semi-colon
+ * Backspace
+ * Forward slash
+ * Quote
+ * Hash
+ * Enter
+ * Equals
+ * Raise
+ * Lower
+ *
+ * == Lower ==
+ * 0-9 (10)
+ * Directions (4)
+ * Delete
+ * Minus
+ * Backslash
+ * Backtick
+ * )
+ * }
+ * ]
+ *
+ * == Raise ==
+ * F1-F12 (12)
+ * Cycle LEDs
+ * Page up
+ * Page down
+ * Home
+ * End
+ * Vol+
+ * Vol-
+ * Mute
+ * Play
  */
 
 /* /\* Example */
@@ -73,20 +115,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Default
  * ,-----------------------------------------------------------------------------------.
- * |   (  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |   )  |
+ * |   [  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |   =  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |   [  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |   ]  |
+ * |   (  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |   '  |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | Enter|
+ * |   {  |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |   #  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | GUI  | Alt  | Tab  | Lower|    Space    | Raise| Bksp |   '  |   #  | Esc  |
+ * | Ctrl | GUI  | Alt  | Tab  | Lower|    Space    | Raise| Bksp | Esc  | Enter| Shift|
  * `-----------------------------------------------------------------------------------'
  */
 [_DEFAULT] = {
-  {KC_LPRN, KC_Q,    KC_W,    KC_E,   KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_RPRN},
-  {KC_LBRC, KC_A,    KC_S,    KC_D,   KC_F,  KC_G,   KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_RBRC},
-  {KC_LSFT, KC_Z,    KC_X,    KC_C,   KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_ENT},
-  {KC_LCTL, KC_LGUI, KC_LALT, KC_TAB, LOWER, KC_SPC, KC_SPC, RAISE, KC_BSPC, KC_QUOT, KC_HASH, KC_ESC}
+  {KC_LBRC, KC_Q,    KC_W,    KC_E,   KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_EQL},
+  {KC_LPRN, KC_A,    KC_S,    KC_D,   KC_F,  KC_G,   KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT},
+  {KC_LCBR, KC_Z,    KC_X,    KC_C,   KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_NUHS},
+  {KC_LCTL, KC_LGUI, KC_LALT, KC_TAB, LOWER, KC_SPC, KC_SPC, RAISE, KC_BSPC, KC_ESC,  KC_ENT,  KC_LSFT}
 },
 
 /* /\* Lower (old) */
