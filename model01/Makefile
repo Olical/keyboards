@@ -2,6 +2,9 @@
 
 ARDUINO_PATH := /usr/share/arduino
 
+# TODO: This should just use the vanilla arduino install from their site.
+# The Arch package does some weird stuff to it so it won't run for me.
+
 deps:
 	if [ -d "Model01-Firmware" ]; then \
 		cd Model01-Firmware && git clean -df && git checkout -- . && git pull && \
