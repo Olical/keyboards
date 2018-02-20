@@ -11,7 +11,7 @@ deps:
 		sudo curl https://raw.githubusercontent.com/keyboardio/Kaleidoscope/master/etc/99-kaleidoscope.rules -o /etc/udev/rules.d/99-kaleidoscope.rules && \
 		git clone git@github.com:keyboardio/Model01-Firmware.git && \
 		mkdir -p $(HOME)/Arduino/hardware/keyboardio && \
-		git clone --recursive git@github.com:keyboardio/Arduino-Boards.git $(HOME)/Arduino/hardware/keyboardio/avr && \
+		git clone --recursive git@github.com:keyboardio/Arduino-Boards.git $(HOME)/Arduino/hardware/keyboardio/avr; \
 	fi
 
 flash:
