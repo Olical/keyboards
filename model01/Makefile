@@ -15,6 +15,7 @@ deps:
 	fi
 
 flash:
+	cp ./Model01-Firmware.ino ./Model01-Firmware && \
 	sudo usermod -a -G uucp $(USER) && \
 	sudo usermod -a -G lock $(USER) && \
 	su - $(USER) -c "bash -c \"cd $(shell pwd)/Model01-Firmware && ARDUINO_PATH=../arduino make flash\""
