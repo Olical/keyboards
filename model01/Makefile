@@ -1,24 +1,20 @@
 .PHONY: deps flash
 
-ARDUINO_PATH := /usr/share/arduino
-
-# TODO: This should just use the vanilla arduino install from their site.
-# The Arch package does some weird stuff to it so it won't run for me.
-
 deps:
 	if [ -d "Model01-Firmware" ]; then \
 		cd Model01-Firmware && git clean -df && git checkout -- . && git pull && \
 		cd $(HOME)/Arduino/hardware/keyboardio/avr && make update-submodules; \
 	else \
+		curl https://downloads.arduino.cc/arduino-1.8.5-linux64.tar.xz -o arduino.tar.xz && \
+		tar -xvf arduino.tar.xz -C arduino && \
+		rm arduino.tar.xz && \
+		sudo curl https://raw.githubusercontent.com/keyboardio/Kaleidoscope/master/etc/99-kaleidoscope.rules -o /etc/udev/rules.d/99-kaleidoscope.rules && \
 		git clone git@github.com:keyboardio/Model01-Firmware.git && \
-		yaourt -S arduino arduino-ctags arduino-docs arduino-builder && \
 		mkdir -p $(HOME)/Arduino/hardware/keyboardio && \
 		git clone --recursive git@github.com:keyboardio/Arduino-Boards.git $(HOME)/Arduino/hardware/keyboardio/avr && \
-		sudo gpasswd -a $(USER) uucp; \
-		sudo gpasswd -a $(USER) lock; \
-		@echo "You must relog to apply group changes." \
 	fi
 
 flash:
-	cd Model01-Firmware && make flash
-
+	sudo usermod -a -G uucp $(USER) && \
+	sudo usermod -a -G lock $(USER) && \
+	su - $(USER) -c "bash -c \"cd $(shell pwd)/Model01-Firmware && ARDUINO_PATH=../arduino make flash\""
